@@ -1,0 +1,41 @@
+<div class="layout">
+    <div class="form-layout">
+        <mat-form-field appearance="fill">
+            <mat-label>Table No</mat-label>
+            <mat-select #tableno value="">
+                <mat-option value="1">1</mat-option>
+                <mat-option value="2">2</mat-option>
+                <mat-option value="3">3</mat-option>
+                <mat-option value="4">4</mat-option>
+                <mat-option value="5">5</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="form-flex" *ngIf="tableno.value">
+            <div class="form-input">
+                <mat-form-field appearance="fill">
+                    <mat-label>Dishes</mat-label>
+                    <mat-select>
+                        <mat-option value="">Chai</mat-option>
+                        <mat-option value="">Tea</mat-option>
+                        <mat-option value="">Chai</mat-option>
+                        <mat-option value="">Chai</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+    
+            <div class="form-input">
+                <mat-form-field appearance="fill">
+                    <mat-label>Quantity</mat-label>
+                    <mat-select>
+                        <mat-option value="">1</mat-option>
+                        <mat-option value="">2</mat-option>
+                        <mat-option value="">3</mat-option>
+                        <mat-option value="">4</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</div>
+

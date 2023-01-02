@@ -1,0 +1,40 @@
+.title {
+    background-color: gold;
+    text-align: center;
+    height: max-content;
+}
+
+.title h1{
+    margin-bottom: 0px;
+    font-size: 35px;
+    padding: 5px;
+}
+.container-box {
+    width: 100%;
+    height: 100%;
+}
+
+.container-sidenav{
+    width: 10%;
+    background-color: aliceblue;
+}
+
+.container-sidenav ul {
+    padding-left: 0;
+}
+
+.container-sidenav li{
+    // list-style-type: none;
+    padding: 10px;
+    text-align: center;
+}
+
+.container-sidenav li:hover {
+    background-color: bisque;
+    border-radius: 5px;
+}
+
+.content-box {
+    height: 100%;
+    background-color: cornsilk;
+}
