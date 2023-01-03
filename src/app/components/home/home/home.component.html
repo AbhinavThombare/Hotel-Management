@@ -4,9 +4,10 @@
 <mat-drawer-container class="container-box">
     <mat-drawer mode="side" opened class="container-sidenav">
         <ul class="list">
-            <li>Home</li>
-            <li><a [routerLink]="['tabledata']" [queryParams]="{token:token}">Table</a></li>
-            <li>Total</li>
+            <li [routerLink]="['../home']" [queryParams]="{token:token}"><a>Home</a></li>
+            <li [routerLink]="['tabledata']" [queryParams]="{token:token}" routerLinkActive="active-link">Table</li>
+            <li [routerLink]="['adddishes']" [queryParams]="{token:token}">Add Dishes</li>
+            <li [routerLink]="['../home']" [queryParams]="{token:token}"><a>Total</a></li>
         </ul>
     </mat-drawer>
     <mat-drawer-content>

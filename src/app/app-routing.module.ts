@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddDishesComponent } from './components/home/add-dishes/add-dishes.component';
 import { CreateTableComponent } from './components/home/create-table/create-table.component';
 import { HomeComponent } from './components/home/home/home.component';
 import { TablesComponent } from './components/home/tables/tables.component';
@@ -20,6 +21,9 @@ const routes: Routes = [
       },
       {
         path:'tabledata',component:CreateTableComponent, canActivate:[AuthguardGuard]
+      },
+      {
+        path:'adddishes',component:AddDishesComponent,canActivate:[AuthguardGuard]
       }
     ]
   }

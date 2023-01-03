@@ -16,3 +16,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-form-field-appearance-fill .mat-form-field-flex {
     background-color: white;
 }
+.mat-form-field-appearance-outline .mat-form-field-flex {
+    background-color: white;
+}
+.mat-select-panel-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

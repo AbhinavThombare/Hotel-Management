@@ -8,6 +8,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,7 @@ import { ForgotPasswordComponent } from './components/login-comp/forgot-password
 import { HomeComponent } from './components/home/home/home.component';
 import { TablesComponent } from './components/home/tables/tables.component';
 import { CreateTableComponent } from './components/home/create-table/create-table.component';
+import { AddDishesComponent } from './components/home/add-dishes/add-dishes.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { CreateTableComponent } from './components/home/create-table/create-tabl
     ForgotPasswordComponent,
     HomeComponent,
     TablesComponent,
-    CreateTableComponent
+    CreateTableComponent,
+    AddDishesComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { CreateTableComponent } from './components/home/create-table/create-tabl
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent],

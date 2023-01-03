@@ -22,4 +22,15 @@ export class NodeServerApiService {
   logoutUser(token:any) {
     return this.http.post(this.configURL+'/api/user/logout/'+token,{observer:'response'})
   }
+
+
+  ///////////////////////////( Dish API )////////////////////////////////////////
+
+  addDish(dish:any) {
+    return this.http.post(this.configURL+'/api/dish/add',{dish},{observe:'response'})
+  }
+
+  allDishes() {
+    return this.http.get(this.configURL+'/api/dish/alldisges',{observe:'response'})
+  }
 }
