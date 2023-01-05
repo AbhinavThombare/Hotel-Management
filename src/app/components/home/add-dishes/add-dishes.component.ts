@@ -1,27 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NodeServerApiService } from 'src/app/services/node-server-api/node-server-api.service';
 import { MatTableDataSource } from '@angular/material/table';
-
-// export interface PeriodicElement {
-//   name: string;
-//   position: number;
-//   weight: number;
-//   symbol: string;
-// }
-
-// const ELEMENT_DATA: PeriodicElement[] = [
-//   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-//   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-//   {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-//   {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-//   {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-//   {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-//   {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-//   {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-//   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-//   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-// ];
-
+import { NotificationAlertService } from 'src/app/services/notification-alert/notification-alert.service';
 
 @Component({
   selector: 'app-add-dishes',
@@ -29,17 +9,21 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./add-dishes.component.scss']
 })
 export class AddDishesComponent implements OnInit {
-  dish: {} | undefined;
+  dish: any | undefined;
   category: String | undefined;
   name: String | undefined;
   price: String | undefined;
   alldishes: any | null;
-  displayedColumns: string[] = ['Category', 'Name', 'Price'];
+  displayedColumns: string[] = ['Category', 'Name', 'Price','Action'];
   result!: any[];
+  searchText:any=''
+  uploadbtn:boolean=false;
+  id: any;
 
 
   constructor(
-    private nodeserverapi: NodeServerApiService
+    private nodeserverapi: NodeServerApiService,
+    private notification: NotificationAlertService
   ) {
 
   }
@@ -76,8 +60,44 @@ export class AddDishesComponent implements OnInit {
         this.name = ''
         this.price = ''
         this.allDishes()
+      },
+      (error) => {
+        if (error.status === 400) {
+          this.notification.errorAlert(error.error)
+        }
       }
     )
   }
 
-}
+  editDish(dish:any) {
+    console.log(dish)
+    this.dish = dish
+    this.uploadbtn=true
+    this.id = dish._id
+    this.category = dish.Category
+    this.name = dish.Dish_Name
+    this.price = dish.Price
+
+  }
+
+  Upload() {
+    this.uploadbtn = false
+    this.dish.category = this.category
+    this.dish.Dish_Name = this.name
+    this.dish.Price = this.price
+
+    console.log(this.dish)
+
+    this.nodeserverapi.updateDish(this.dish).subscribe(
+      (res) => {
+        console.log(res)
+        this.category = ''
+        this.name = ''
+        this.price = ''
+        this.allDishes()
+        this.notification.successAlert('Dish is Updated')
+      }
+    )
+    }
+
+  }

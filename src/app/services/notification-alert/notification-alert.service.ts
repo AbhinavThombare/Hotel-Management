@@ -20,6 +20,15 @@ export class NotificationAlertService {
     });
   }
 
+  successAlert(msg:any) {
+    this._snackBar.open(msg,'',{
+      horizontalPosition:this.horizontalPosition,
+      verticalPosition:this.verticalPosition,
+      duration:2000,
+      panelClass:['successbar'],
+    })
+  }
+
   loginAlert(msg:any) {
     this._snackBar.open(msg, '', {
       horizontalPosition: this.horizontalPosition,

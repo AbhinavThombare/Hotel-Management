@@ -33,4 +33,8 @@ export class NodeServerApiService {
   allDishes() {
     return this.http.get(this.configURL+'/api/dish/alldisges',{observe:'response'})
   }
+
+  updateDish(dish:any) {
+    return this.http.put(this.configURL+'/api/dish/updatedish',{dish},{observe:'response'})
+  }
 }

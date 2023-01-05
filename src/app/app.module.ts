@@ -9,6 +9,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +22,7 @@ import { HomeComponent } from './components/home/home/home.component';
 import { TablesComponent } from './components/home/tables/tables.component';
 import { CreateTableComponent } from './components/home/create-table/create-table.component';
 import { AddDishesComponent } from './components/home/add-dishes/add-dishes.component';
+import { FilterValuePipe } from './pipes/filter-value/filter-value.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { AddDishesComponent } from './components/home/add-dishes/add-dishes.comp
     HomeComponent,
     TablesComponent,
     CreateTableComponent,
-    AddDishesComponent
+    AddDishesComponent,
+    FilterValuePipe
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { AddDishesComponent } from './components/home/add-dishes/add-dishes.comp
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent],
