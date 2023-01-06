@@ -14,10 +14,10 @@ export class AddDishesComponent implements OnInit {
   name: String | undefined;
   price: String | undefined;
   alldishes: any | null;
-  displayedColumns: string[] = ['Category', 'Name', 'Price','Action'];
+  displayedColumns: string[] = ['Category', 'Name', 'Price', 'Action'];
   result!: any[];
-  searchText:any=''
-  uploadbtn:boolean=false;
+  searchText: any = ''
+  uploadbtn: boolean = false;
   id: any;
 
 
@@ -69,10 +69,10 @@ export class AddDishesComponent implements OnInit {
     )
   }
 
-  editDish(dish:any) {
+  editDish(dish: any) {
     console.log(dish)
     this.dish = dish
-    this.uploadbtn=true
+    this.uploadbtn = true
     this.id = dish._id
     this.category = dish.Category
     this.name = dish.Dish_Name
@@ -96,8 +96,34 @@ export class AddDishesComponent implements OnInit {
         this.price = ''
         this.allDishes()
         this.notification.successAlert('Dish is Updated')
+      },
+      (error) => {
+        if (error.status === 400) {
+          this.notification.errorAlert(error.error)
+          this.category = ''
+          this.name = ''
+          this.price = ''
+          this.allDishes()
+        }
       }
     )
-    }
-
   }
+
+  deleteDish(dish:any) {
+
+    console.log(dish._id)
+
+    this.nodeserverapi.deleteDish(dish._id).subscribe(
+      (res) => {
+        // console.log(res)
+        if(res.status===200){
+          this.allDishes()
+        }
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
+  }
+
+}

@@ -65,7 +65,7 @@
                     <th mat-header-cell *matHeaderCellDef>Action</th>
                     <td mat-cell *matCellDef="let element">
                         <button id="edit" mat-raised-button color="primary" (click)="editDish(element)">Edit</button>
-                        <button id="delete" mat-raised-button color="warn">Delete</button>
+                        <button id="delete" mat-raised-button color="warn" (click)="deleteDish(element)">Delete</button>
                     </td>
                 </ng-container>
                 

@@ -37,4 +37,14 @@ export class NodeServerApiService {
   updateDish(dish:any) {
     return this.http.put(this.configURL+'/api/dish/updatedish',{dish},{observe:'response'})
   }
+
+  deleteDish(dishid:any) {
+    return this.http.delete(this.configURL+'/api/dish/delete/'+dishid,{observe:'response'})
+  }
+
+  ///////////////////////////////////( Tabel API's)//////////////////////////////////////////
+
+  addTable(table:any) {
+    return this.http.post(this.configURL+'/api/table/addtable',{table},{observe:'response'})
+  }
 }
