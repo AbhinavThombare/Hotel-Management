@@ -1,83 +1,33 @@
+
+
 <div class="layout">
-    <div class="form-layout">
-        <mat-form-field appearance="fill">
-            <mat-label>Table No</mat-label>
-            <mat-select #tableno value="" >
-                <mat-option value="1" (click)="openModal(editProfileModal)">1</mat-option>
-                <mat-option value="2">2</mat-option>
-                <mat-option value="3">3</mat-option>
-                <mat-option value="4">4</mat-option>
-                <mat-option value="5">5</mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <div class="form-flex" *ngIf="tableno.value">
-            <div class="form-input">
-                <mat-form-field appearance="fill">
-                    <mat-label>Dishes</mat-label>
-                    <mat-select>
-                        <mat-option value="">Chai</mat-option>
-                        <mat-option value="">Tea</mat-option>
-                        <mat-option value="">Chai</mat-option>
-                        <mat-option value="">Chai</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-    
-            <div class="form-input">
-                <mat-form-field appearance="fill">
-                    <mat-label>Quantity</mat-label>
-                    <mat-select>
-                        <mat-option value="">1</mat-option>
-                        <mat-option value="">2</mat-option>
-                        <mat-option value="">3</mat-option>
-                        <mat-option value="">4</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-        </div>
+    <div class="buttonAdd">
+        <button mat-raised-button (click)="addTable()">Add Table</button>
     </div>
+
+    <div class="tableView">
+        <table mat-table [dataSource]="tableData" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="Table_No">
+                <th mat-header-cell *matHeaderCellDef>Table No</th>
+                <td mat-cell *matCellDef="let element">{{element.tableNo}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="Dishes">
+                <th mat-header-cell *matHeaderCellDef>Dishes</th>
+                <td mat-cell *matCellDef="let element">{{element.dishes}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="Price">
+                <th mat-header-cell *matHeaderCellDef>Price</th>
+                <td mat-cell *matCellDef="let element">{{element.price}}</td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+    </div>
+
 </div>
-
-<ng-template #editProfileModal let-modal>
-    <div class="modal-header">
-     <h5 class="modal-title" id="editProfileLabel">Edit Profile</h5>
-     <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-     </button>
-    </div>
-    
-    <div class="modal-body">
-     <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
-      <div class="form-group row">
-       <label for="firstname" class="col-sm-4 col-form-label">First Name</label>
-       <div class="col-sm-8">
-        <input type="text" class="form-control" formControlName="firstname" id="firstname">
-       </div>
-      </div>
-      <div class="form-group row">
-       <label for="lastname" class="col-sm-4 col-form-label">Last Name</label>
-       <div class="col-sm-8">
-        <input type="text" class="form-control" formControlName="lastname" id="lastname">
-       </div>
-      </div>
-      <div class="form-group row">
-       <label for="username" class="col-sm-4 col-form-label">Username</label>
-       <div class="col-sm-8">
-        <input type="text" class="form-control" formControlName="username" id="username">
-       </div>
-      </div>
-      <div class="form-group row">
-       <label for="email" class="col-sm-4 col-form-label">Email</label>
-       <div class="col-sm-8">
-        <input type="email" class="form-control" formControlName="email" id="email">
-       </div>
-      </div>
-      <div class="modal-footer">
-       <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Close</button>
-       <button type="submit" class="btn btn-primary">Save changes</button>
-      </div>
-     </form>
-    </div>
-   </ng-template>
-

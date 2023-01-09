@@ -10,6 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,7 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForgotPasswordComponent } from './components/login-comp/forgot-password/forgot-password.component';
 import { HomeComponent } from './components/home/home/home.component';
 import { TablesComponent } from './components/home/tables/tables.component';
-import { CreateTableComponent } from './components/home/create-table/create-table.component';
+import { CreateTableComponent,DialogAnimationsExampleDialog } from './components/home/create-table/create-table.component';
 import { AddDishesComponent } from './components/home/add-dishes/add-dishes.component';
 import { FilterValuePipe } from './pipes/filter-value/filter-value.pipe';
 
@@ -34,7 +35,8 @@ import { FilterValuePipe } from './pipes/filter-value/filter-value.pipe';
     TablesComponent,
     CreateTableComponent,
     AddDishesComponent,
-    FilterValuePipe
+    FilterValuePipe,
+    DialogAnimationsExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ import { FilterValuePipe } from './pipes/filter-value/filter-value.pipe';
     MatSelectModule,
     MatInputModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],

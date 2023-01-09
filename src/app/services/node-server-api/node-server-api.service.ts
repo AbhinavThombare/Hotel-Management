@@ -47,4 +47,8 @@ export class NodeServerApiService {
   addTable(table:any) {
     return this.http.post(this.configURL+'/api/table/addtable',{table},{observe:'response'})
   }
+
+  getTables() {
+    return this.http.get(this.configURL+'/api/table/tables',{observe:'response'})
+  }
 }
