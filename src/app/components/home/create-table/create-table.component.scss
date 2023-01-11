@@ -3,6 +3,13 @@
     padding: 20px;
     // text-align: center;
 }
+#tableNo {
+    text-align: center;
+}
+
+#totalPrice {
+    text-align: center;
+}
 
 .tableView {
     margin-top: 5px;
@@ -10,6 +17,24 @@
 
 table.mat-table {
     width: 100%;
+}
+
+#tableth {
+    text-align: center;
+}
+
+table td span li{
+    list-style: none;
+}
+
+#editbtn:hover {
+    background-color: rgb(211, 211, 255);
+    color: blue;
+}
+
+#deletebtn:hover {
+    background-color: rgb(255, 211, 211);
+    color: red;
 }
 
 .form-layout {
@@ -24,4 +49,8 @@ table.mat-table {
 .form-flex{
     display: flex;
     justify-content: center;
+}
+
+.mat-list{
+    padding: 5px;
 }
