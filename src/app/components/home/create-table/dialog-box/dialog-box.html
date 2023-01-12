@@ -20,7 +20,7 @@
             <div class="form-input">
                 <mat-form-field appearance="fill">
                     <mat-label>Quantity</mat-label>
-                    <mat-select [(ngModel)]="quan">
+                    <mat-select [(value)]="quan">
                         <mat-option value="1">1</mat-option>
                         <mat-option value="2">2</mat-option>
                         <mat-option value="3">3</mat-option>
@@ -56,8 +56,7 @@
         <ng-container matColumnDef="Action">
             <th mat-header-cell *matHeaderCellDef>Action</th>
             <td mat-cell *matCellDef="let element">
-                <!-- <button id="editbtn" mat-icon-button color="primary" (click)="editDialog(element)"><mat-icon>edit</mat-icon></button> -->
-                <button id="deletebtn" mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+                <button id="editbtn" mat-icon-button color="primary" (click)="editDialog(element)"><mat-icon>edit</mat-icon></button>
             </td>
         </ng-container>
         

@@ -1,0 +1,19 @@
+.layout {
+    // padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.card-layout {
+    padding: 10px;
+}
+
+.example-card {
+    max-width: 225px;
+    max-height: fit-content;
+    padding: 10px;
+}

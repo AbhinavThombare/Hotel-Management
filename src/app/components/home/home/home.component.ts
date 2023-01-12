@@ -35,4 +35,14 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  logout(token:any) {
+    console.log('abhinav')
+    this.nodeserverapi.logoutUser(token).subscribe(
+      (res) => {
+        console.log(res)
+        this.router.navigate([''])
+      }
+    )
+  }
+
 }

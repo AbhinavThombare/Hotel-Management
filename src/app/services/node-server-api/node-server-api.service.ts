@@ -51,4 +51,8 @@ export class NodeServerApiService {
   getTables() {
     return this.http.get(this.configURL+'/api/table/tables',{observe:'response'})
   }
+
+  deleteTable(tableId:any) {
+    return this.http.delete(this.configURL+'/api/table/deleteTable/'+tableId,{observe:'response'})
+  }
 }

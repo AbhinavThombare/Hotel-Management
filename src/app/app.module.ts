@@ -13,7 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
-
+import {MatCardModule} from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -57,7 +57,8 @@ import { FilterValuePipe } from './pipes/filter-value/filter-value.pipe';
     MatButtonModule,
     MatDialogModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

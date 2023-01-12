@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { MatTable } from '@angular/material/table';
 import { Data } from '@angular/router';
 import { NodeServerApiService } from 'src/app/services/node-server-api/node-server-api.service';
+import { NotificationAlertService } from 'src/app/services/notification-alert/notification-alert.service';
 
 // import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -22,17 +23,20 @@ export class CreateTableComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    public nodeserverapi: NodeServerApiService
+    public nodeserverapi: NodeServerApiService,
+    public notificationapi : NotificationAlertService
   ) { }
 
   ngOnInit(): void {
     this.getTableData()
+    setInterval(() => {
+      this.getTableData()
+    },3000)
   }
 
   getTableData() {
     this.nodeserverapi.getTables().subscribe(
       (res) => {
-        console.log(res.body)
         this.tableData = res.body
       }
     )
@@ -56,6 +60,18 @@ export class CreateTableComponent implements OnInit {
     })
   }
 
+  deleteTable(id:any) {
+    console.log(id)
+    this.nodeserverapi.deleteTable(id).subscribe(
+      (res) => {
+        if(res.status === 200) {
+          this.notificationapi.successAlert('Table Deleted Successfully.')
+        }
+      }
+    )
+  }
+
+
   onSubmit() {
 
   }
@@ -74,23 +90,27 @@ export class DialogAnimationsExampleDialog {
   displayedColumns: string[] = ['Dishes', 'Quantity','Action'];
   Data: any = [];
   tempData!: any;
-  dishList!: any;
+  dishList: any='';
   tableData!: any;
   tableList = [1,2,3,4,5,6,7,8,9]
+  removeData: any;
 
   constructor(
     public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>,
     public nodeserverapi: NodeServerApiService,
+    public notificationapi : NotificationAlertService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.getDishList();
     this.getTableList();
+    // console.log(this.Data)
     if(data){
       this.tableno=(data.tableNo).toString();
       data.Dishes.forEach((element:any) => {
         this.Data.push(element)
       });
     }
+
    
   }
 
@@ -98,11 +118,10 @@ export class DialogAnimationsExampleDialog {
   @ViewChild(MatTable)
   table!: MatTable<Data>;
 
-  getDishList() {
+  private getDishList() {
     this.nodeserverapi.allDishes().subscribe(
       (res) => {
         this.dishList = res.body
-        console.log(this.dishList.dishes)
       }
     )
   }
@@ -111,7 +130,6 @@ export class DialogAnimationsExampleDialog {
     this.nodeserverapi.getTables().subscribe(
       (res) => {
         this.tableData = res.body
-        console.log(this.tableData)
       }
     )
   }
@@ -129,15 +147,13 @@ export class DialogAnimationsExampleDialog {
     this.Data.push({
       dish: Dish,
       quantity: Quantity,
-      Price: ''
+      price: ''
     })
+    
     this.tempData = {
       tableNo: tableNo,
       Dishes: this.Data
     }
-
-    console.log(this.Data)
-    console.log(this.tempData)
     this.dishvalue = ''
     this.quan = ''
     if (this.Data.length > 1) {
@@ -147,12 +163,23 @@ export class DialogAnimationsExampleDialog {
 
   editDialog(e:any) {
     console.log(e)
+    this.dishvalue = e.dish;
+    this.quan = e.quantity.toString();
+    console.log(this.Data)
+    this.Data.forEach((element:any,index:any) => {
+      if(element.dish === e.dish) {
+        this.Data.splice(index,1)
+      }
+    });
   }
 
+ 
   submitData() {
     this.nodeserverapi.addTable(this.tempData).subscribe(
       (res) => {
-        console.log(res)
+        if(res.status === 200) {
+          this.notificationapi.successAlert('Table Added Successfully.')
+        }
       }
     )
   }
