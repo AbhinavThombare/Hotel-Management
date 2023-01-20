@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'forgotpassword', component: ForgotPasswordComponent },
   {
-    path: 'home', component: HomeComponent,
+    path: 'home', component: HomeComponent, canActivate:[AuthguardGuard],
     children:[
       {
         path:'',component:TablesComponent, canActivate:[AuthguardGuard]

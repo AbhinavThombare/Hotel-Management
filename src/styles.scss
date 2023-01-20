@@ -28,3 +28,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-form-field-appearance-legacy .mat-form-field-infix {
     background-color: white;
 }
+
+.mat-form-field-type-mat-date-range-input .mat-form-field-infix {
+    border-top-width: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}

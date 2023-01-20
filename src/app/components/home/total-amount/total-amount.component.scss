@@ -3,6 +3,16 @@
     text-align: center;
 }
 
-.example-form-field {
-    margin: 0 8px 16px 0;
-  }
+.display{
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-card{
+    width: 30%;
+    text-align: center;
+}
+
+.cardlayout{
+text-align: center;
+}

@@ -16,7 +16,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
-import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { DatePipe } from '@angular/common'  
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,7 +46,8 @@ import { TotalAmountComponent } from './components/home/total-amount/total-amoun
     FilterValuePipe,
     DialogAnimationsExampleDialog,
     PaymentComponentComponent,
-    TotalAmountComponent
+    TotalAmountComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -70,9 +72,8 @@ import { TotalAmountComponent } from './components/home/total-amount/total-amoun
     MatButtonModule,
     MatFormFieldModule,
     MatNativeDateModule, 
-    MatMomentDateModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
   exports:[MatSidenavModule]
 })

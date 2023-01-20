@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -60,5 +61,9 @@ export class NodeServerApiService {
 
   allDataTable(tableData:any) {
     return this.http.post(this.configURL+'/api/allDataTables/Tables',{tableData},{observe:'response'})
+  }
+
+  getTotalAmount(start_date:any,end_date:any) {
+    return this.http.get<any[]>(this.configURL+'/api/alldata/totalAmount/'+start_date+'/'+end_date)
   }
 }
