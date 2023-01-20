@@ -1,0 +1,21 @@
+<div class="layout">
+    <!-- <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Choose Date</mat-label>
+        <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker" disabled>
+            <input matStartDate placeholder="Start date" formControlName="start">
+            <input matEndDate placeholder="End date" formControlName="end">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+        <mat-date-range-picker #campaignOnePicker></mat-date-range-picker>
+    </mat-form-field> -->
+
+    <mat-form-field>
+        <input matInput [matDatepicker]="pickeryear" 
+         placeholder="Choose a date">
+        <mat-datepicker-toggle  [for]="pickeryear">
+        </mat-datepicker-toggle>
+        <mat-datepicker #pickeryear startView="year"></mat-datepicker>
+    </mat-form-field>
+
+</div>

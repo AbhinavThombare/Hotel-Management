@@ -8,17 +8,21 @@
                 <li [routerLink]="['../home']" [queryParams]="{token:token}"><a>Home</a></li>
                 <li [routerLink]="['tabledata']" [queryParams]="{token:token}" routerLinkActive="active-link">Table</li>
                 <li [routerLink]="['adddishes']" [queryParams]="{token:token}">Add Dishes</li>
-                <li [routerLink]="['../home']" [queryParams]="{token:token}"><a>Total</a></li>
-                <div id="logout" (click)="logout(token)"><li><a>Logout</a></li></div>
+                <li [routerLink]="['totalAmount']" [queryParams]="{token:token}"><a>Total</a></li>
+                <div id="logout" (click)="logout(token)">
+                    <li><a>Logout</a></li>
+                </div>
             </ul>
         </mat-drawer>
         <mat-drawer-content>
             <div class="content-box">
                 <router-outlet></router-outlet>
+                
             </div>
-        </mat-drawer-content>
-      </mat-drawer-container>
+            <div class="footer">
+                <p>Abhinav <span>&#169;</span> Copyright</p>
+            </div> 
+        </mat-drawer-content>    
+        
+    </mat-drawer-container>
 </div>
-<div class="footer">
-    <p>Footer</p>
-  </div>

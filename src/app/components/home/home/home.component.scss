@@ -22,6 +22,9 @@
 }
 
 .container-sidenav{
+    padding-top: 50px;
+    position:fixed;
+    top:0;
     width: 15%;
     background-color: aliceblue;
 }
@@ -49,8 +52,8 @@
 }
 
 .content-box {
-    height: 100vh;
-    background-color: cornsilk;
+    height: auto;
+    // background-color: cornsilk;
 }
 
 #logout {
@@ -70,10 +73,21 @@
 
 .footer {
     position: fixed;
+    // padding-top: 10px;
     left: 0;
     bottom: 0;
     width: 100%;
+    height: 25px;
     background-color: red;
     color: white;
     text-align: center;
  }
+
+//  div p {
+//     font-size: 30px;
+//  }
+
+.mat-drawer-content{
+    height: 90vh;
+    background-color:cornsilk;
+}

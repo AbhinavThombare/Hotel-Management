@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { NodeServerApiService } from 'src/app/services/node-server-api/node-server-api.service';
+import { PaymentComponentComponent } from '../payment-component/payment-component.component';
 
 @Component({
   selector: 'app-tables',
@@ -6,10 +9,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tables.component.scss']
 })
 export class TablesComponent implements OnInit {
+  allTableData!: any | null;
+  // displaycoloumn=['Dish','Quantity','Price']
 
-  constructor() { }
+  constructor(
+    private nodeserverapi : NodeServerApiService,
+    public dialog: MatDialog,
+  ) { }
 
   ngOnInit(): void {
+    this.getAllTables()
+    setInterval(() => {
+      this.getAllTables()
+    },3000)
+  }
+
+  getAllTables() {
+    this.nodeserverapi.getTables().subscribe(
+      (res) => {
+        this.allTableData = res.body;
+      }
+    )
+  }
+
+  openDetails(tableDetails:any) {
+    this.dialog.open(PaymentComponentComponent,{
+      width: '30%',
+      height: 'fit-content',
+      data:tableDetails
+    })
   }
 
 }

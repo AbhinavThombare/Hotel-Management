@@ -35,7 +35,6 @@ export class AddDishesComponent implements OnInit {
   allDishes() {
     this.nodeserverapi.allDishes().subscribe(
       (res) => {
-        console.log(res.body)
         this.alldishes = res.body
         this.alldishes = this.alldishes.dishes
         this.result = Object.keys(this.alldishes).map(e => this.alldishes[e]);

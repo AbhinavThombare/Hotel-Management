@@ -4,6 +4,7 @@ import { AddDishesComponent } from './components/home/add-dishes/add-dishes.comp
 import { CreateTableComponent } from './components/home/create-table/create-table.component';
 import { HomeComponent } from './components/home/home/home.component';
 import { TablesComponent } from './components/home/tables/tables.component';
+import { TotalAmountComponent } from './components/home/total-amount/total-amount.component';
 import { ForgotPasswordComponent } from './components/login-comp/forgot-password/forgot-password.component';
 import { LoginComponent } from './components/login-comp/login/login.component';
 import { SignupComponent } from './components/login-comp/signup/signup.component';
@@ -24,9 +25,12 @@ const routes: Routes = [
       },
       {
         path:'adddishes',component:AddDishesComponent,canActivate:[AuthguardGuard]
+      },
+      {
+        path:'totalAmount',component:TotalAmountComponent,canActivate:[AuthguardGuard]
       }
     ]
-  }
+  },
 ];
 
 @NgModule({

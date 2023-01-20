@@ -14,6 +14,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +29,8 @@ import { TablesComponent } from './components/home/tables/tables.component';
 import { CreateTableComponent,DialogAnimationsExampleDialog } from './components/home/create-table/create-table.component';
 import { AddDishesComponent } from './components/home/add-dishes/add-dishes.component';
 import { FilterValuePipe } from './pipes/filter-value/filter-value.pipe';
+import { PaymentComponentComponent } from './components/home/payment-component/payment-component.component';
+import { TotalAmountComponent } from './components/home/total-amount/total-amount.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,9 @@ import { FilterValuePipe } from './pipes/filter-value/filter-value.pipe';
     CreateTableComponent,
     AddDishesComponent,
     FilterValuePipe,
-    DialogAnimationsExampleDialog
+    DialogAnimationsExampleDialog,
+    PaymentComponentComponent,
+    TotalAmountComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +65,12 @@ import { FilterValuePipe } from './pipes/filter-value/filter-value.pipe';
     MatDialogModule,
     MatDividerModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatDatepickerModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatNativeDateModule, 
+    MatMomentDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

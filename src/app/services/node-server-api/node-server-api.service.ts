@@ -55,4 +55,10 @@ export class NodeServerApiService {
   deleteTable(tableId:any) {
     return this.http.delete(this.configURL+'/api/table/deleteTable/'+tableId,{observe:'response'})
   }
+
+///////////////////////////////////( AllDataTables )////////////////////////////////////////
+
+  allDataTable(tableData:any) {
+    return this.http.post(this.configURL+'/api/allDataTables/Tables',{tableData},{observe:'response'})
+  }
 }
