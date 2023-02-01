@@ -19,10 +19,10 @@
     <div class="totalAmountLayout">
         <mat-card>
             <mat-card-header>
-                <mat-card-title>Start Date : {{start_date}}</mat-card-title>
-                <mat-card-title>End Date : {{end_date}}</mat-card-title>
+                <mat-card-title><h3>Start Date : {{start_date}}</h3></mat-card-title>
+                <mat-card-title><h3>End Date : {{end_date}}</h3></mat-card-title>
             </mat-card-header>
-            <mat-card-content>Total Amount : {{getTotalAmount | currency}}</mat-card-content>
+            <mat-card-content><h2><strong>Total Amount : {{ getTotalAmount | currency :"&#8377;"}}</strong></h2></mat-card-content>
         </mat-card>
     </div>
 </div>

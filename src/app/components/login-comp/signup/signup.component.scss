@@ -33,9 +33,28 @@ label span {
 }
 
 #buttoncard button{
-    width: 20%;
+    width: fit-content;
 }
 
 #finput{
     padding-top: 10px;
+}
+
+@media screen and (max-width:600px) {
+    #card{
+        width: 70%;
+    }
+
+    #buttoncard button{
+        width: fit-content;
+    }
+}
+
+@media screen and (max-width:350px) {
+    #card{
+        width: 80%;
+    }
+    #buttoncard button{
+        width: fit-content;
+    }
 }

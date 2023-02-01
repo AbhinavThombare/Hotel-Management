@@ -3,6 +3,7 @@
     padding: 20px;
     // text-align: center;
 }
+
 #tableNo {
     text-align: center;
 }
@@ -23,7 +24,7 @@ table.mat-table {
     text-align: center;
 }
 
-table td span li{
+table td span li {
     list-style: none;
 }
 
@@ -42,20 +43,45 @@ table td span li{
     margin: 5px;
 }
 
-.form-input{
+.form-input {
     margin: 5px;
 }
 
-.form-flex{
+.form-flex {
     display: flex;
     justify-content: center;
 }
 
-.mat-list{
+.mat-list {
     padding: 5px;
 }
 
-.tableView{
+.tableView {
     max-height: 470px;
     overflow: auto;
+}
+
+@media screen and (max-width:600px) {
+    .layout {
+        padding: 5px;
+    }
+
+    .mat-header-cell {
+        padding-right: 5px;
+    }
+
+    .mat-cell {
+        font-size: 12px;
+    }
+
+    td.mat-cell:last-of-type,
+    th.mat-header-cell:last-of-type,
+    td.mat-footer-cell:last-of-type {
+        padding-right: 0px;
+    }
+
+    td.mat-cell:first-of-type,
+    th.mat-header-cell:first-of-type {
+        padding-left: 5px;
+    }
 }

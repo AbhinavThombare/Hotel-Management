@@ -16,7 +16,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
-import { DatePipe } from '@angular/common'  
+import { DatePipe } from '@angular/common'  ;
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +33,7 @@ import { AddDishesComponent } from './components/home/add-dishes/add-dishes.comp
 import { FilterValuePipe } from './pipes/filter-value/filter-value.pipe';
 import { PaymentComponentComponent } from './components/home/payment-component/payment-component.component';
 import { TotalAmountComponent } from './components/home/total-amount/total-amount.component';
+import { FilterDishPipe } from './pipes/filter-dish/filter-dish.pipe';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { TotalAmountComponent } from './components/home/total-amount/total-amoun
     DialogAnimationsExampleDialog,
     PaymentComponentComponent,
     TotalAmountComponent,
+    FilterDishPipe,
 
   ],
   imports: [
@@ -71,7 +74,8 @@ import { TotalAmountComponent } from './components/home/total-amount/total-amoun
     MatDatepickerModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatNativeDateModule, 
+    MatNativeDateModule,
+    MatAutocompleteModule 
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

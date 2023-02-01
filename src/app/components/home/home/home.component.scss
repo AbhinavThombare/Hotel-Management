@@ -42,7 +42,6 @@
 .container-sidenav li:hover {
     background-color: bisque;
     border-radius: 5px;
-    font-size: 23px;
 }
 
 .container-sidenav li a {
@@ -68,7 +67,6 @@
     background-color: red;
     color: white;
     border-radius: 5px;
-    font-size: 23px;
 }
 
 .footer {
@@ -90,4 +88,23 @@
 .mat-drawer-content{
     height: 90vh;
     background-color:cornsilk;
+}
+
+@media  screen and (max-width:350px) {
+    .list{
+        font-size: 10px;
+        font-style: normal;
+    }
+
+    #logout li:hover{
+        background-color: red;
+        color: white;
+        border-radius: 5px;
+    }
+
+    .container-sidenav li:hover {
+        background-color: bisque;
+        border-radius: 5px;
+    }
+    
 }

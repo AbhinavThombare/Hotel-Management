@@ -19,19 +19,19 @@ export class CreateTableComponent implements OnInit {
 
   editProfileForm!: FormGroup;
   tableData: any = [];
-  displayedColumns: string[] = ['Table_No','Dishes','Quantity','Unit_Price', 'Price','Total_Price','Action'];
+  displayedColumns: string[] = ['Table_No', 'Dishes', 'Quantity', 'Unit_Price', 'Price', 'Total_Price', 'Action'];
 
   constructor(
     public dialog: MatDialog,
     public nodeserverapi: NodeServerApiService,
-    public notificationapi : NotificationAlertService
+    public notificationapi: NotificationAlertService
   ) { }
 
   ngOnInit(): void {
     this.getTableData()
     setInterval(() => {
       this.getTableData()
-    },3000)
+    }, 3000)
   }
 
   getTableData() {
@@ -48,23 +48,23 @@ export class CreateTableComponent implements OnInit {
       height: 'fit-content'
     })
   }
-  updateTable(tableNo:any): void {
-    const onetable = this.tableData.find((i:any) => {
+  updateTable(tableNo: any): void {
+    const onetable = this.tableData.find((i: any) => {
       return (i.tableNo === tableNo)
     })
-    this.dialog.open(DialogAnimationsExampleDialog,{
+    this.dialog.open(DialogAnimationsExampleDialog, {
       width: 'fit-content',
       height: 'fit-content',
-      data:onetable,
-      
+      data: onetable,
+
     })
   }
 
-  deleteTable(id:any) {
+  deleteTable(id: any) {
     console.log(id)
     this.nodeserverapi.deleteTable(id).subscribe(
       (res) => {
-        if(res.status === 200) {
+        if (res.status === 200) {
           this.notificationapi.successAlert('Table Deleted Successfully.')
         }
       }
@@ -84,34 +84,35 @@ export class CreateTableComponent implements OnInit {
   styleUrls: ['./dialog-box/dialog-box.scss']
 })
 export class DialogAnimationsExampleDialog {
-  tableno:any;
+  tableno: any;
   dishvalue: any;
   quan: any;
-  displayedColumns: string[] = ['Dishes', 'Quantity','Action'];
+  displayedColumns: string[] = ['Dishes', 'Quantity', 'Action'];
   Data: any = [];
   tempData!: any;
-  dishList: any='';
+  dishList: any = '';
   tableData!: any;
-  tableList = [1,2,3,4,5,6,7,8,9]
+  tableList = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   removeData: any;
+  searchTerm: any;
 
   constructor(
     public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>,
     public nodeserverapi: NodeServerApiService,
-    public notificationapi : NotificationAlertService,
+    public notificationapi: NotificationAlertService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.getDishList();
     this.getTableList();
     // console.log(this.Data)
-    if(data){
-      this.tableno=(data.tableNo).toString();
-      data.Dishes.forEach((element:any) => {
+    if (data) {
+      this.tableno = (data.tableNo).toString();
+      data.Dishes.forEach((element: any) => {
         this.Data.push(element)
       });
     }
 
-   
+
   }
 
 
@@ -126,7 +127,7 @@ export class DialogAnimationsExampleDialog {
     )
   }
 
-  getTableList(){
+  getTableList() {
     this.nodeserverapi.getTables().subscribe(
       (res) => {
         this.tableData = res.body
@@ -134,50 +135,69 @@ export class DialogAnimationsExampleDialog {
     )
   }
 
-  getTableOccupied(no:any) {
-   if(this.tableData){
-    var result =this.tableData.find((i:any) => {
-      return (i.tableNo === no)
-    })
-   }
-   return result;
+  getTableOccupied(no: any) {
+    if (this.tableData) {
+      var result = this.tableData.find((i: any) => {
+        return (i.tableNo === no)
+      })
+    }
+    return result;
   }
 
   addTable(tableNo: any, Dish: any, Quantity: any) {
-    this.Data.push({
-      dish: Dish,
-      quantity: Quantity,
-      price: ''
-    })
-    
+
+    if (this.Data.length) {
+      var getit = false;
+      this.Data.find((i: any) => {
+        if (i.dish === Dish) {
+          i.quantity = parseInt(i.quantity) + parseInt(Quantity)
+          getit = true
+        }
+      })
+      if (!getit) {
+        this.Data.push({
+          dish: Dish,
+          quantity: Quantity,
+          price: ''
+        })
+      }
+    }
+    else {
+      this.Data.push({
+        dish: Dish,
+        quantity: Quantity,
+        price: ''
+      })
+    }
+
     this.tempData = {
       tableNo: tableNo,
       Dishes: this.Data
     }
-    this.dishvalue = ''
+    this.searchTerm = ''
     this.quan = ''
     if (this.Data.length > 1) {
       this.table.renderRows()
     }
   }
 
-  editDialog(e:any) {
+  editDialog(e: any) {
     console.log(e)
     this.dishvalue = e.dish;
     this.quan = e.quantity.toString();
     console.log(this.Data)
-    this.Data.forEach((element:any,index:any) => {
-      if(element.dish === e.dish) {
-        this.Data.splice(index,1)
+    this.Data.forEach((element: any, index: any) => {
+      if (element.dish === e.dish) {
+        this.Data.splice(index, 1)
       }
     });
   }
 
- 
+
   submitData() {
     this.nodeserverapi.addTable(this.tempData).subscribe(
       (res) => {
-        if(res.status === 200) {
+        if (res.status === 200) {
           this.notificationapi.successAlert('Table Added Successfully.')
         }
       }

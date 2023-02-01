@@ -63,6 +63,7 @@ export class LoginComponent implements OnInit {
             expiry: Date.now() + 600000,   // store the TTL (time to live)
           }
           localStorage.setItem('token', JSON.stringify(data))
+          console.log(localStorage.getItem('token'))
           this.router.navigate(['/home'],{queryParams:{token:this.token}})
           this.notificationapi.loginAlert('Login Successfull!')
         }

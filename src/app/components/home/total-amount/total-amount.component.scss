@@ -3,16 +3,39 @@
     text-align: center;
 }
 
-.display{
+.display {
     display: flex;
     justify-content: space-between;
 }
 
-mat-card{
-    width: 30%;
+.mat-card {
+    width: 40%;
     text-align: center;
 }
 
-.cardlayout{
-text-align: center;
+.mat-card-header {
+    display: flex;
+    justify-content: center;
+}
+
+.totalAmountLayout {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width:800px) {
+    .mat-card{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .mat-card{
+        width: 100%;
+    }
+    .mat-datepicker-content{
+        width: 250px;
+        // height: 320px;
+    }
 }

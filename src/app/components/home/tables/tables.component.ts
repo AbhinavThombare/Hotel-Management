@@ -34,7 +34,7 @@ export class TablesComponent implements OnInit {
 
   openDetails(tableDetails:any) {
     this.dialog.open(PaymentComponentComponent,{
-      width: '30%',
+      width: 'fit-content',
       height: 'fit-content',
       data:tableDetails
     })

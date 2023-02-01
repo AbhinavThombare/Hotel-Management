@@ -1,5 +1,8 @@
 <div id="layout">
     <div id="card">
+        <div class="title">
+            <h1>Hotel Management</h1>
+        </div>
         <form [formGroup]="loginform" novalidate>
             <div id="finput">
                 <label>Email<span>*</span></label>
@@ -34,11 +37,9 @@
                     (click)="onSubmit()">Login</button>
             </div>
 
-            <div id="helpcard">
-                <div id="help">
-                    <a id="signup" routerLink="signup">Sign Up</a>
-                    <a id="forgot" routerLink="forgotpassword">Forgot Password?</a>
-                </div>
+            <div id="help">
+                    <div> <a id="signup" routerLink="signup">Sign Up</a></div>
+                    <div><a id="forgot" routerLink="forgotpassword">Forgot Password?</a></div>
             </div>
         </form>
     </div>

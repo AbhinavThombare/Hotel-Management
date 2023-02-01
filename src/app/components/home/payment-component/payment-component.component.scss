@@ -19,3 +19,16 @@ mat-card{
     height: 300px;
     overflow: auto;
 }
+
+@media screen and (max-width:800px) {
+    .layout{
+        width: 100%;
+    }
+    .mat-dialog-containe{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    
+}

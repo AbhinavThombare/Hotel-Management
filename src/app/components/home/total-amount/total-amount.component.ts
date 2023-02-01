@@ -39,8 +39,6 @@ export class TotalAmountComponent implements OnInit {
   datePick() {
     this.dateRangePick = this.dateRange.value;
     console.log(this.dateRangePick)
-    // this.date=new Date();  
-    // console.log(this.date)
     this.start_date = this.datepipe.transform(this.dateRangePick.start, 'yyyy-MM-dd');
     this.end_date = this.datepipe.transform(this.dateRangePick.end, 'yyyy-MM-dd');
     console.log(this.start_date)
@@ -50,6 +48,7 @@ export class TotalAmountComponent implements OnInit {
       (res) => {
         this.getAllData = res
         console.log(this.getAllData)
+        this.getTotalAmount = 0
         this.getAllData.forEach((item: any) => {
           this.getTotalAmount = this.getTotalAmount + item.Total_Price
         });

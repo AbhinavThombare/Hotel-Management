@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit {
       (res) => {
         console.log(res)
         this.router.navigate([''])
+        localStorage.removeItem('token')
       }
     )
   }

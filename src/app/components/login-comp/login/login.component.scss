@@ -1,4 +1,4 @@
-#layout{
+#layout {
     height: 100%;
     background-color: azure;
     display: flex;
@@ -6,73 +6,116 @@
     align-items: center;
 }
 
-#card{
-    padding: 20px;
-    background-color:#ffff99;
+#card {
+    padding: 0px 0px 20px 0px;
+    background-color: #ffff99;
     margin: 20px 20px 20px 20px;
-    width: 30%;
+    width: 40%;
     height: max-content;
     border-radius: 5px;
     box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#finput {
-    margin-top: 3px;
+.title{
+    padding: 5px;
+    text-align: center;
+    background-color:coral;
+    border-radius: 5px 5px 0px 0px;
 }
 
-label{
+.title h1 {
+    margin-bottom: 0px;
+}
+
+#finput {
+    margin-top: 3px;
+    padding: 20px 20px 0px 20px;
+}
+
+label {
     padding: 5px;
     font-size: 15px;
 }
 
-label span{
+label span {
     color: red;
 }
 
-#msg{
+#msg {
     color: red;
     padding: 8px;
     margin-bottom: 0px;
 }
-#button{
+
+#button {
     text-align: center;
 }
-#button button{
-    width: 20%;
-} 
 
-#helpcard{
+#button button {
+    width: fit-content;
+}
+
+#helpcard {
     margin-top: 10px;
 }
 
-#help{
+#help {
     padding-left: 20px;
     padding-right: 20px;
 }
 
-#help a{
+#help a {
     text-decoration: none;
-    
+
 }
 
-#signup{
-   float: left;
-   color: black;
+#signup {
+    float: left;
+    color: black;
 }
 
-#signup:hover{
+#signup:hover {
     color: rgb(0, 21, 249);
     font-size: 15px;
-    
+
 }
 
-#forgot{
-   float: right;
-   color: black;
+#forgot {
+    float: right;
+    color: black;
 }
 
-#forgot:hover{
+#forgot:hover {
     color: rgb(0, 21, 249);
     font-size: 15px;
-    
+
+}
+
+@media screen and (max-width:800px) {
+    #card {
+        width: 50%;
+    }
+
+    #button button {
+        width: fit-content;
+    }
+}
+
+@media screen and (max-width:600px) {
+    #card {
+        width: 70%;
+    }
+
+    #button button {
+        width: fit-content;
+    }
+
+    #help {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 5px;
+    }
 }
