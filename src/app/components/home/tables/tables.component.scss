@@ -1,3 +1,8 @@
+.no-table-book {
+    width: 100%;
+    padding-top: 50px;
+    text-align: center;
+}
 .layout {
     // padding: 10px;
     display: flex;
@@ -46,4 +51,10 @@ p {
     padding-bottom: 5px;
     display: flex;
     justify-content: space-evenly;
+}
+
+@media screen and (max-width:350px) {
+    .no-table-book h1 {
+        font-size: 15px;
+    }
 }
